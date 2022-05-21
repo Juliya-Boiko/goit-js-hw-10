@@ -18,3 +18,42 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.country-list {
+  list-style: none;
+}
+
+.country-list__item {
+  display: flex;
+  align-items: center;
+}
+
+.country-list__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.country-list__img {
+  display: block;
+  width: 100px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+
+
+.country-info__img {
+  width: 200px;
+  display: block;
+  border-radius: 10px;
+}
+
+.country-info__name {
+  font-size: 30px;
+}
+
+.country-info__capital,
+.country-info__population,
+.country-info__languages {
+  font-size: 20px;
+  padding-left: 30px;
+}
