@@ -45,46 +45,6 @@ function onIputCnange(evt) {
         .then(resultRender)
         .catch(catchError);
     }
-
 }
 
 refs.input.addEventListener('input', debounce(onIputCnange, DEBOUNCE_DELAY));
-
-
-
-
-// function errorCatcher() {
-//     Notify.failure('Oops, there is no country with that name');
-// }
-
-// function onIputCnange(evt) {
-//     let value = evt.target.value.trim();
-//     if (!value) {
-//         refs.countryList.innerHTML = '';
-//         refs.countryInfo.innerHTML = '';
-//     } else {
-//         fetchCountries(value)
-//             .then((data) => {
-//                 const countryesAmount = data.length;
-
-//                 if (countryesAmount > 10) {
-//                     Notify.info('Too many matches found. Please enter a more specific name');
-//                     refs.countryList.innerHTML = '';
-//                     refs.countryInfo.innerHTML = '';
-//                 }
-
-//                 if (countryesAmount > 2 && countryesAmount <= 10) {
-//                     refs.countryInfo.innerHTML = '';
-//                     const countriesListMarkUp = data.map((elem) => countryListMark(elem)).join('');
-//                     refs.countryList.innerHTML = countriesListMarkUp;
-//                 }
-
-//                 if (countryesAmount === 1) {
-//                     refs.countryList.innerHTML = '';
-//                     const countryMarkUp = countryCardMark(data[0]);
-//                     refs.countryInfo.innerHTML = countryMarkUp;
-//                     // console.log(data)
-//                 }
-//             }).catch(errorCatcher());
-//     }
-// }
