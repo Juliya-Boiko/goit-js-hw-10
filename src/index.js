@@ -1,8 +1,8 @@
 import './css/styles.css';
 import debounce from 'lodash.debounce';
 import { fetchCountries } from './fetchCountries';
-import countryListMark from './countryListMark.hbs';
-import countryCardMark from './countryCardMark.hbs';
+import countryListMark from './templates/countryListMark.hbs';
+import countryCardMark from './templates/countryCardMark.hbs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
@@ -24,7 +24,7 @@ function resultRender(array) {
          Notify.info('Too many matches found. Please enter a more specific name');
     } else if (amount > 1 && amount <= 10) {
         refs.countryInfo.innerHTML = '';
-        const countriesListMarkUp = array.map((elem) => countryListMark(elem)).join('');
+        const countriesListMarkUp = countryListMark(array);
         refs.countryList.innerHTML = countriesListMarkUp;
     } else if (amount === 1) {
         refs.countryList.innerHTML = '';
@@ -42,8 +42,10 @@ function onIputCnange(evt) {
     let value = evt.target.value.trim();
     if (value) {
         fetchCountries(value)
-        .then(resultRender)
-        .catch(catchError);
+            .then(resultRender)
+            .catch(catchError);
+    } else {
+        clearFields();
     }
 }
 
